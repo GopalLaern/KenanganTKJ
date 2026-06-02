@@ -864,6 +864,39 @@ img {
   transform: translateX(6px);
 }
 
+/* --- 9.5 HYBRID PLAY ICON OVERLAY --- */
+.card-play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--c-red);
+  color: var(--c-white);
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  opacity: 0.85;
+  z-index: 10;
+  box-shadow: var(--shadow-red);
+  transition: var(--transition-smooth);
+}
+
+.card-play-icon i {
+  margin-left: 4px; /* Posisi segitiga play pas di tengah */
+}
+
+.shell-card:hover .card-play-icon {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.15);
+  background-color: var(--c-yellow);
+  color: var(--c-red);
+  box-shadow: 0 10px 20px rgba(251, 206, 7, 0.4);
+}
+
 /* --- 10. ENDING / PERPISAHAN SECTION --- */
 .ending-grid {
   display: grid;
@@ -1181,7 +1214,12 @@ img {
   line-height: 1.8;
 }
 
-/* --- 13. SITE FOOTER --- */
+/* --- 13. UTILS & SPECIAL --- */
+.hidden {
+  display: none !important;
+}
+
+/* --- 14. SITE FOOTER --- */
 .site-footer {
   background-color: var(--c-grey-800);
   color: var(--c-white);
@@ -1252,7 +1290,7 @@ img {
   font-size: 0.95rem;
 }
 
-/* --- 14. RESPONSIVE QUERIES --- */
+/* --- 15. RESPONSIVE QUERIES --- */
 @media (max-width: 992px) {
   .about-grid {
     grid-template-columns: 1fr;

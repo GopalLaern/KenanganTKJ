@@ -27,131 +27,138 @@ const archiveData = [
   {
     id: "A1",
     grade: "10",
-    title: "Masa Orientasi Kejuruan",
-    desc: "Hari pertama memasuki laboratorium TKJ. Pengenalan budaya keselamatan kerja (K3LH) dan orientasi perangkat keras komputer.",
+    title: "MPLS",
+    desc: "Hari pertama masuk smk dan ketemu satu sama lain masih malu malu🤭.",
     image: "assets/img/memori1.jpg",
   },
   {
     id: "A2",
     grade: "10",
-    title: "Perakitan PC & Audit Hardware",
-    desc: "Praktik bongkar pasang CPU pertama kalinya. Mengenal motherboard, prosesor, RAM, dan mengatasi error pada proses booting awal.",
+    title: "MOP",
+    desc: "Huh grasak gerusuk nyebur ke endut sawah wkwk memorable banget.",
     image: "assets/img/memori2.jpg",
   },
   {
     id: "A3",
     grade: "10",
-    title: "Instalasi Sistem Operasi",
-    desc: "Membuat bootable flashdisk dan melakukan instalasi dual-boot Windows dan Linux (Ubuntu) di workstation masing-masing.",
+    title: "FIRST TIME JADI PETUGAS UPACARA",
+    desc: "Kangen upacara ga sih guys :)",
     image: "assets/img/memori3.jpg",
   },
   {
     id: "A4",
     grade: "10",
-    title: "Proyek Terminasi UTP (Crimping)",
-    desc: "Momen jari-jari terluka demi menyusun urutan kabel Straight dan Cross-over. Berhasil lulus tes konektivitas 100%.",
+    title: "PILKETOS PERTAMA",
+    desc: "Kalian inget ga nih milih siapa waktu itu",
     image: "assets/img/memori4.jpg",
   },
   {
     id: "A5",
     grade: "10",
-    title: "Pengenalan Topologi Fisik",
-    desc: "Praktik mengenali tata letak perangkat jaringan aktif seperti switch, hub, router, dan penataan kabel di area rack server.",
-    image: "assets/img/memori5.jpg",
+    title: "BUKBER PERTAMA",
+    desc: "First time bukber nih yee.",
+    image: "assets/img/memori5.jpeg",
   },
   {
     id: "A6",
     grade: "10",
-    title: "Audit Kelayakan Jaringan Lab",
-    desc: "Melakukan penelusuran port switch yang aktif dan melakukan pelabelan kabel LAN secara sistematis untuk kemudahan identifikasi.",
-    image: "assets/img/memori6.jpg",
+    title: "BAGI RAPORT KELAS 10",
+    desc: "Bu Nurul selesai jadi walikelas 10 tkj 1 :(",
+    image: "assets/img/memori6.jpeg",
+    video: "assets/video/BuNurul.mp4",
   },
 
   // === KELAS 11 (6 SLOT FOTO) ===
   {
     id: "A7",
     grade: "11",
-    title: "Konfigurasi Mikrotik Dasar",
-    desc: "Pengenalan Winbox pertama kali. Mengatur IP Address, DHCP Server, dan NAT agar seluruh komputer lab bisa terkoneksi ke internet.",
-    image: "assets/img/memori7.jpg",
+    title: "FIRST TIME DIAJAR PA KAMAL",
+    desc: "Tegang banget nih kayaknya🤭",
+    image: "assets/img/memori7.jpeg",
   },
   {
     id: "A8",
     grade: "11",
-    title: "Pemasangan Access Point",
-    desc: "Praktik lapangan memasang dan mengonfigurasi jaringan nirkabel (Wi-Fi) di area koridor sekolah untuk akses fasilitas e-learning.",
-    image: "assets/img/memori8.jpg",
+    title: "Maulid Nabi",
+    desc: "Fotbar pertama sama Pa Kamal nih yee",
+    image: "assets/img/memori8.jpeg",
   },
   {
     id: "A9",
     grade: "11",
-    title: "Routing OSPF dan BGP",
+    title: "STUDYTOUR",
     desc: "Proyek kelompok mensimulasikan jaringan antar kota. Menganalisis packet tracer dan menyelesaikan masalah looping jaringan.",
-    image: "assets/img/memori9.jpg",
+    image: "assets/img/memori9.jpeg",
+    video: "assets/video/StudyTour.mp4",
   },
   {
     id: "A10",
     grade: "11",
-    title: "Prakerin (Praktik Kerja Industri)",
-    desc: "Pelepasan siswa/i menuju perusahaan IT dan ISP. Membawa nama baik sekolah dan belajar menghadapi pelanggan secara langsung.",
-    image: "assets/img/memori10.jpg",
+    title: "BUKBER KEDUA",
+    desc: "Pada mokel ga nih pas lagi PKL hahaha.",
+    image: "assets/img/memori10.jpeg",
+    video: "assets/video/trendbukber.mp4",
   },
   {
     id: "A11",
     grade: "11",
-    title: "Instalasi Fiber Optic (Splicing)",
-    desc: "Praktik menyambung core serat optik menggunakan fusion splicer dengan ketelitian mikro dan mengukur redaman kabel menggunakan OTDR.",
-    image: "assets/img/memori11.jpg",
+    title: "NORMAL DAY WITH THE BOYS",
+    desc: "Jadi kangen bercanda bareng deh :)",
+    image: "assets/img/memori11.jpeg",
+    video: "assets/video/hujannnn.mp4",
   },
   {
     id: "A12",
     grade: "11",
-    title: "Manajemen Bandwidth Sekolah",
-    desc: "Melakukan pembatasan kecepatan download dan upload menggunakan metode Simple Queue agar koneksi internet sekolah terbagi adil.",
-    image: "assets/img/memori12.jpg",
+    title: "Classmeet",
+    desc: "RUSUH BANGETTT HAHAHA",
+    image: "assets/img/memori12.jpeg",
+    video: "assets/video/classmeet.mp4",
   },
 
   // === KELAS 12 (6 SLOT FOTO) ===
   {
     id: "A13",
     grade: "12",
-    title: "Membangun Server Linux (Debian)",
-    desc: "Begadang di lab mengonfigurasi Apache, MariaDB, PHP, dan DNS Server. Membangun fondasi web hosting mandiri untuk sekolah.",
-    image: "assets/img/memori13.jpg",
+    title: "JADI PETUGAS UPACARA TERAKHIR",
+    desc: "Abis jadi petugas upacara lanjut foto 3x4 untuk ijazah ga kerasa ya :)",
+    image: "assets/img/memori13.jpeg",
   },
   {
     id: "A14",
     grade: "12",
-    title: "Ujian Kompetensi Keahlian (UKK)",
-    desc: "Ujian paling menegangkan! Membangun arsitektur jaringan VLAN, Hotspot Login, dan Firewall dari nol diawasi penguji eksternal.",
-    image: "assets/img/memori14.jpg",
+    title: "LAST PHOTO TOGETHER IN A CLASSROOM",
+    desc: "no komen sedih banget jujur :(",
+    image: "assets/img/memori14.jpeg",
   },
   {
     id: "A15",
     grade: "12",
-    title: "Lomba Kompetensi Siswa (LKS)",
-    desc: "Perwakilan TKJ 1 Anyer bertanding di tingkat provinsi, menunjukkan keahlian Network System Administration kelas atas.",
+    title: "MBG TERAKHIR",
+    desc: "Bakal kangen makan mbg bareng sama kalian :(",
     image: "assets/img/memori15.jpg",
+    video: "assets/video/lastmbg.mp4",
   },
   {
     id: "A16",
     grade: "12",
-    title: "Audit Keamanan Firewall Server",
-    desc: "Praktik membangun pertahanan server dari serangan luar menggunakan konfigurasi iptables dan memblokir port-port rentan.",
-    image: "assets/img/memori16.jpg",
+    title: "UKOM",
+    desc: "Sukses yeee done ukommm, ga seserem yang dibayangin kok ternyata guys :)",
+    image: "assets/img/memori16.jpeg",
+    video: "assets/video/ukomdone.mp4",
   },
   {
     id: "A17",
     grade: "12",
-    title: "Presentasi Proyek Tugas Akhir",
-    desc: "Menyusun laporan hasil rancang bangun jaringan berskala industri menengah di hadapan tim penguji dan guru kejuruan.",
-    image: "assets/img/memori17.jpg",
+    title: "FOTO YEARBOOK",
+    desc: "GAYA DULUU CEKREKK😎",
+    image: "assets/img/memori17.jpeg",
   },
   {
     id: "A18",
     grade: "12",
-    title: "Shutdown: Momen Perpisahan",
-    desc: "Mencabut kabel patch cord untuk terakhir kalinya. Meninggalkan laboratorium dengan sejuta ilmu, siap menyambut dunia profesional.",
+    title: "PERPISAHAN",
+    desc: "Selamat semoga sukses dan sehat terus kalian semua di mana pun kalian berada :(",
     image: "assets/img/memori18.jpeg",
   },
 ];
@@ -208,8 +215,16 @@ function renderGallery(filterGrade) {
     card.style.transitionDelay = `${delay}s`;
     card.onclick = () => openModal(item.id);
 
+    // Render Ikon Play jika item tersebut memiliki berkas Video lokal
+    const playIconHTML = item.video
+      ? `<div class="card-play-icon"><i class="fa-solid fa-play"></i></div>`
+      : "";
+
     card.innerHTML = `
-            <div class="card-img"><img src="${item.image}" alt="${item.title}" loading="lazy"></div>
+            <div class="card-img">
+                ${playIconHTML}
+                <img src="${item.image}" alt="${item.title}" loading="lazy">
+            </div>
             <div class="card-body">
                 <span class="card-tag">Fase / Kelas ${item.grade}</span>
                 <h3 class="card-title">${item.title}</h3>
@@ -267,21 +282,41 @@ function setupTabs() {
   });
 }
 
-// Modal Logic
+// Modal Logic (Mendukung Deteksi Gambar & Video Secara Hibrida)
 function openModal(id) {
   const data = archiveData.find((item) => item.id === id);
   if (!data) return;
-  document.getElementById("modal-image").src = data.image;
+
+  const modalImage = document.getElementById("modal-image");
+  const modalVideo = document.getElementById("modal-video");
+
   document.getElementById("modal-tag").textContent =
     `Dokumentasi Fase ${data.grade}`;
   document.getElementById("modal-title").textContent = data.title;
   document.getElementById("modal-desc").textContent = data.desc;
+
+  if (data.video) {
+    modalImage.classList.add("hidden");
+    modalVideo.classList.remove("hidden");
+    modalVideo.src = data.video;
+    modalVideo.play();
+  } else {
+    modalVideo.classList.add("hidden");
+    modalImage.classList.remove("hidden");
+    modalImage.src = data.image;
+  }
 
   document.getElementById("archive-modal").classList.remove("hidden");
   document.body.style.overflow = "hidden";
 }
 
 function closeModal() {
+  const modalVideo = document.getElementById("modal-video");
+
+  // Pause video agar audio tidak bocor saat modal ditutup
+  modalVideo.pause();
+  modalVideo.src = "";
+
   document.getElementById("archive-modal").classList.add("hidden");
   document.body.style.overflow = "auto";
   setTimeout(() => {
