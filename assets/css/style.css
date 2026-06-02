@@ -1272,6 +1272,11 @@ img {
   justify-content: center;
   margin-top: 15px;
 }
+.credit {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
 
 .social-links a {
   display: inline-flex;
