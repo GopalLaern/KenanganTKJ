@@ -1,128 +1,155 @@
 <!doctype html>
-<html lang="en">
+<html lang="id">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TKJ 1 | Shell Archive</title>
+    <title>TKJ 1 SMKN 1 ANYER | Digital Archive</title>
 
-    <!-- Minimalist Monospace Font -->
+    <!-- Corporate Fonts (Open Sans) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap"
       rel="stylesheet"
     />
 
-    <!-- Custom CSS -->
+    <!-- Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Custom Styles -->
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
-    <!-- Main Shell Container -->
-    <main class="shell-window">
-      <!-- Window Title Bar -->
-      <header class="shell-header">
-        <div class="window-buttons">
-          <span class="btn close"></span>
-          <span class="btn minimize"></span>
-          <span class="btn maximize"></span>
-        </div>
-        <div class="window-title">guest@tkj1-anyer: ~ (zsh)</div>
-      </header>
-
-      <!-- Command Line Interface Body -->
-      <div class="shell-body custom-scrollbar">
-        <!-- Login Info -->
-        <div class="system-message">
-          <p>Last login: <span id="current-date"></span> on ttys001</p>
-          <p>TKJ 1 SMKN 1 ANYER Archive OS v2.0 (Minimalist Edition)</p>
-          <p>Type 'help' to see available commands or just browse below.</p>
-          <br />
-        </div>
-
-        <!-- Command 1: Show Admins -->
-        <div class="command-block">
-          <div class="prompt">
-            <span class="user">guest@tkj1-anyer</span
-            ><span class="colon">:</span><span class="dir">~</span
-            ><span class="char">$</span>
-            <span class="typed-command">cat /etc/sysadmins.conf</span>
+    <!-- Corporate Header -->
+    <header class="shell-header">
+      <div class="container header-container">
+        <div class="logo">
+          <!-- Shell-style Logo for TKJ -->
+          <div class="logo-icon">
+            <i class="fa-solid fa-network-wired"></i>
           </div>
-          <div class="output">
-            <div id="teachers-container" class="admin-list">
-              <!-- Injected via JS -->
-            </div>
+          <div class="logo-text">
+            <span class="logo-title">TKJ 1 ANYER</span>
+            <span class="logo-subtitle">SMKN 1 Anyer Digital Archive</span>
           </div>
         </div>
+        <nav class="main-nav">
+          <ul>
+            <li><a href="#home">Beranda</a></li>
+            <li><a href="#leadership">Wali Kelas</a></li>
+            <li><a href="#memories">Galeri Memori</a></li>
+          </ul>
+        </nav>
+        <div class="mobile-menu">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+      </div>
+    </header>
 
-        <!-- Command 2: List Memories -->
-        <div class="command-block">
-          <div class="prompt">
-            <span class="user">guest@tkj1-anyer</span
-            ><span class="colon">:</span><span class="dir">~/memories</span
-            ><span class="char">$</span>
-            <span class="typed-command">ls -la --group-directories-first</span>
-          </div>
-
-          <div class="output">
-            <!-- Minimalist Filters / Folders -->
-            <div class="filter-group">
-              <button class="filter-btn active" data-filter="all">./all</button>
-              <button class="filter-btn" data-filter="10">./grade-10</button>
-              <button class="filter-btn" data-filter="11">./grade-11</button>
-              <button class="filter-btn" data-filter="12">./grade-12</button>
-            </div>
-
-            <!-- Gallery Output -->
-            <div id="gallery-container" class="gallery-grid">
-              <!-- Injected via JS -->
-            </div>
+    <main>
+      <!-- Hero Section (Shell Signature Style) -->
+      <section id="home" class="hero-section">
+        <div class="hero-image"></div>
+        <div class="container hero-container">
+          <div class="hero-card">
+            <div class="red-line"></div>
+            <h1>Menggerakkan Masa Depan Jaringan</h1>
+            <p>
+              Selamat datang di arsip digital TKJ 1 SMKN 1 Anyer. Menyimpan
+              jejak langkah, inovasi, dan memori dari Kelas 10 hingga 12 dalam
+              satu ekosistem terpadu.
+            </p>
+            <a href="#memories" class="btn-primary"
+              >Jelajahi Memori <i class="fa-solid fa-chevron-right"></i
+            ></a>
           </div>
         </div>
+      </section>
 
-        <!-- Active Prompt -->
-        <div class="command-block">
-          <div class="prompt">
-            <span class="user">guest@tkj1-anyer</span
-            ><span class="colon">:</span><span class="dir">~/memories</span
-            ><span class="char">$</span>
-            <span class="cursor"></span>
+      <!-- Leadership / Teachers Section -->
+      <section id="leadership" class="section-grey">
+        <div class="container">
+          <div class="section-title">
+            <h2>Manajemen Kelas (Wali Kelas)</h2>
+            <p>
+              Mengenal lebih dekat sosok pemimpin yang membimbing perjalanan TKJ
+              1.
+            </p>
+          </div>
+
+          <div id="teachers-grid" class="teachers-grid">
+            <!-- Data di-inject via JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Memories / Gallery Section -->
+      <section id="memories" class="section-white">
+        <div class="container">
+          <div class="section-title">
+            <h2>Jejak Perjalanan Kami</h2>
+            <p>
+              Pilih tingkat kelas untuk melihat dokumentasi kegiatan dan memori
+              kami.
+            </p>
+          </div>
+
+          <!-- Shell Style Tabs -->
+          <div class="tabs-container">
+            <button class="tab-btn active" data-filter="all">
+              Semua Memori
+            </button>
+            <button class="tab-btn" data-filter="10">Kelas 10</button>
+            <button class="tab-btn" data-filter="11">Kelas 11</button>
+            <button class="tab-btn" data-filter="12">Kelas 12</button>
+          </div>
+
+          <!-- Gallery Grid -->
+          <div id="gallery-grid" class="cards-grid">
+            <!-- Data di-inject via JS -->
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="shell-footer">
+      <div class="container">
+        <div class="footer-content">
+          <p>&copy; 2026 TKJ 1 SMKN 1 ANYER. All rights reserved.</p>
+          <div class="social-links">
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#"><i class="fa-solid fa-envelope"></i></a>
           </div>
         </div>
       </div>
-    </main>
+    </footer>
 
-    <!-- Minimalist Image Viewer (Modal) -->
-    <div id="image-viewer" class="modal hidden">
-      <div class="modal-content">
-        <div class="modal-header">
-          <span class="modal-title"
-            >viewer - <span id="modal-filename">image.jpg</span></span
-          >
-          <button class="modal-close" onclick="closeViewer()">[X]</button>
+    <!-- Corporate Modal / Lightbox -->
+    <div id="modal" class="modal-overlay hidden">
+      <div class="modal-box">
+        <button class="modal-close" onclick="closeModal()">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="modal-image">
+          <img id="modal-img" src="" alt="Memory Image" />
         </div>
-        <div class="modal-body">
-          <div class="modal-image-wrapper">
-            <img id="modal-img" src="" alt="Memory" />
-          </div>
-          <div class="modal-info">
-            <div class="info-row">
-              <span class="info-label">Title:</span>
-              <span id="modal-title" class="info-val"></span>
-            </div>
-            <div class="info-row">
-              <span class="info-label">Grade:</span>
-              <span id="modal-grade" class="info-val"></span>
-            </div>
-            <div class="info-row">
-              <span class="info-label">Desc :</span>
-              <span id="modal-desc" class="info-val text-muted"></span>
-            </div>
-          </div>
+        <div class="modal-content">
+          <span id="modal-grade" class="badge"></span>
+          <h3 id="modal-title"></h3>
+          <p id="modal-desc"></p>
+        </div>
+        <div class="modal-footer">
+          <div class="red-line-bottom"></div>
         </div>
       </div>
     </div>
 
-    <!-- Custom JS -->
+    <!-- Script -->
     <script src="assets/js/app.js"></script>
   </body>
 </html>
