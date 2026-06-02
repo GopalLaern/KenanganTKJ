@@ -6,18 +6,17 @@
 const leadershipData = [
   {
     id: "L1",
-    name: "Bpk. Rahmat Santoso, S.Kom",
-    role: "Head of Operations (Grade 10 & 11)",
-    quote:
-      "Membangun fondasi infrastruktur jaringan yang presisi, sama halnya dengan mendidik integritas teknisi masa depan.",
-    image: "assets/img/guru1.jpg", // <- Taruh foto di assets/img/guru1.jpg
+    name: "Nurulaini, S.Pd",
+    role: "Walikelas (Kelas 10)",
+    quote: "-",
+    image: "assets/img/guru1.jpeg", // <- Taruh foto di assets/img/guru1.jpg
   },
   {
     id: "L2",
-    name: "Ibu Dian Pertiwi, M.T",
-    role: "Senior Director (Grade 12)",
+    name: "Kamal Maulana, S.Kom ",
+    role: "Walikelas (Kelas 11 & 12)",
     quote:
-      "Tujuan akhir kami bukan sekadar konektivitas, melainkan mempersiapkan SDM unggul untuk memimpin di era industri 4.0.",
+      "Aku bagikan ilmu ini semampuku dan pengalaman belajar ku dan itu pun hanya sebagian saja, sisa bagian lainnya adalah tanggung jawab kalian",
     image: "assets/img/guru2.jpg", // <- Taruh foto di assets/img/guru2.jpg
   },
 ];
@@ -153,7 +152,7 @@ const archiveData = [
     grade: "12",
     title: "Shutdown: Momen Perpisahan",
     desc: "Mencabut kabel patch cord untuk terakhir kalinya. Meninggalkan laboratorium dengan sejuta ilmu, siap menyambut dunia profesional.",
-    image: "assets/img/memori18.jpg",
+    image: "assets/img/memori18.jpeg",
   },
 ];
 
