@@ -87,7 +87,7 @@ const archiveData = [
     id: "A9",
     grade: "11",
     title: "STUDYTOUR",
-    desc: "Proyek kelompok mensimulasikan jaringan antar kota. Menganalisis packet tracer dan menyelesaikan masalah looping jaringan.",
+    desc: "Asik ya jalan-jalannn hihi",
     image: "assets/img/memori9.jpeg",
     video: "assets/video/StudyTour.mp4",
   },
