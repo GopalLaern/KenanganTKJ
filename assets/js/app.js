@@ -8,7 +8,7 @@ const leadershipData = [
     id: "L1",
     name: "Nurulaini, S.Pd",
     role: "Walikelas (Kelas 10)",
-    quote: "-",
+    quote: "Nothing is impossible",
     image: "assets/img/guru1.jpeg", // <- Taruh foto di assets/img/guru1.jpg
   },
   {
