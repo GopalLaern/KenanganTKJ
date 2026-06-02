@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TKJ 1 | SMKN 1 Anyer Digital Archive</title>
 
-    <!-- Google Fonts: Open Sans (Identik dengan Shell UI) -->
+    <!-- Google Fonts: Open Sans & Montserrat -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&display=swap"
       rel="stylesheet"
     />
 
@@ -26,11 +26,10 @@
     <!-- ================= HEADER ================= -->
     <header class="site-header" id="header">
       <div class="container header-inner">
-        <!-- LOGO SECTION: Ganti file 'logo-tkj.png' dengan logo kelas/sekolahmu -->
         <a href="#" class="brand-logo">
+          <!-- GANTI LOGO DI SINI: Tinggal hapus komentar di bawah dan sesuaikan jalurnya -->
           <!-- <img src="assets/img/logo-tkj.png" alt="Logo TKJ 1" id="main-logo"> -->
 
-          <!-- Placeholder Logo (Hapus bagian icon ini jika sudah pakai tag <img> di atas) -->
           <div class="logo-placeholder">
             <div class="logo-box">TKJ</div>
             <span class="brand-text"><strong>TKJ 1</strong> SMKN 1 Anyer</span>
@@ -42,20 +41,40 @@
             <li><a href="#hero">Beranda</a></li>
             <li><a href="#about">Tentang Kami</a></li>
             <li><a href="#leadership">Manajemen</a></li>
-            <li><a href="#archive">Arsip Digital</a></li>
+            <li><a href="#archive">Arsip & Memori</a></li>
+            <li><a href="#ending" class="nav-highlight">Perpisahan</a></li>
           </ul>
         </nav>
 
         <div class="header-actions">
-          <button class="btn-search">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </button>
-          <button class="btn-menu mobile-only">
-            <i class="fa-solid fa-bars"></i>
+          <button class="btn-menu mobile-only" aria-label="Buka Menu">
+            <i class="fa-solid fa-bars-staggered"></i>
           </button>
         </div>
       </div>
     </header>
+
+    <!-- Menu Laci Mobile (Mobile Drawer) -->
+    <div class="mobile-drawer" id="mobile-drawer">
+      <button
+        class="btn-close-drawer"
+        id="close-drawer"
+        aria-label="Tutup Menu"
+      >
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <ul>
+        <li><a href="#hero">Beranda</a></li>
+        <li><a href="#about">Tentang Kami</a></li>
+        <li><a href="#leadership">Manajemen</a></li>
+        <li><a href="#archive">Arsip & Memori</a></li>
+        <li><a href="#ending">Perpisahan</a></li>
+      </ul>
+      <div class="drawer-footer">
+        <div class="yellow-accent-bar"></div>
+        <p>TKJ 1 SMKN 1 Anyer</p>
+      </div>
+    </div>
 
     <main>
       <!-- ================= HERO SECTION ================= -->
@@ -67,18 +86,21 @@
           />
         </div>
         <div class="container hero-content-wrapper">
-          <!-- Kotak menumpuk khas Shell -->
-          <div class="hero-box">
+          <div class="hero-box fade-in-up">
             <div class="red-accent-top"></div>
+            <span class="hero-badge"
+              ><i class="fa-solid fa-shield-halved"></i> Kelas Unggulan &
+              Inovatif</span
+            >
             <h1>Menggerakkan Kemajuan Jaringan</h1>
             <p>
               Selamat datang di arsip digital TKJ 1 SMKN 1 Anyer. Mengeksplorasi
               jejak inovasi, memori, dan dedikasi kami dalam membangun
               infrastruktur masa depan dari Kelas 10 hingga 12.
             </p>
-            <a href="#archive" class="btn-primary"
-              >Temukan cerita kami <i class="fa-solid fa-chevron-right"></i
-            ></a>
+            <a href="#archive" class="btn-primary">
+              Temukan cerita kami <i class="fa-solid fa-arrow-right"></i>
+            </a>
           </div>
         </div>
       </section>
@@ -86,7 +108,8 @@
       <!-- ================= ABOUT SECTION ================= -->
       <section id="about" class="section-padding bg-light-grey">
         <div class="container about-grid">
-          <div class="about-text">
+          <div class="about-text animate-on-scroll">
+            <span class="section-tag">PROFIL EKOSISTEM</span>
             <h2 class="section-title">Komitmen pada Konektivitas</h2>
             <p>
               Selama tiga tahun, TKJ 1 bukan sekadar kelas, melainkan sebuah
@@ -94,85 +117,134 @@
               energi digital dan optimalisasi jaringan lokal maupun global.
             </p>
             <p>
-              Misi kami sejalan dengan standar industri: mencetak tenaga ahli
-              jaringan yang tangguh, adaptif, dan siap mengatasi setiap
-              <em>troubleshooting</em> dengan solusi yang berkelanjutan.
+              Setiap lini operasional kami jalankan dengan standar etika
+              industri tinggi demi menghasilkan generasi administrator jaringan
+              terbaik.
             </p>
-            <a href="#leadership" class="text-link"
-              >Pelajari kepemimpinan kami
-              <i class="fa-solid fa-chevron-right"></i
-            ></a>
+            <a href="#leadership" class="text-link">
+              Pelajari kepemimpinan kami
+              <i class="fa-solid fa-chevron-right"></i>
+            </a>
           </div>
-          <div class="about-stats">
+
+          <div class="about-stats animate-on-scroll">
             <div class="stat-card">
-              <i class="fa-solid fa-network-wired stat-icon"></i>
+              <div class="stat-icon-wrapper">
+                <i class="fa-solid fa-network-wired stat-icon"></i>
+              </div>
               <h3 class="counter" data-target="36">0</h3>
               <p>Total Siswa/i</p>
             </div>
             <div class="stat-card">
-              <i class="fa-solid fa-server stat-icon"></i>
+              <div class="stat-icon-wrapper">
+                <i class="fa-solid fa-server stat-icon"></i>
+              </div>
               <h3 class="counter" data-target="1024">0</h3>
               <p>Jam Praktik Lab</p>
             </div>
             <div class="stat-card">
-              <i class="fa-solid fa-ethernet stat-icon"></i>
+              <div class="stat-icon-wrapper">
+                <i class="fa-solid fa-ethernet stat-icon"></i>
+              </div>
               <h3 class="counter" data-target="1500">0</h3>
-              <p>Meter Kabel Ditarik</p>
+              <p>Meter Kabel LAN</p>
             </div>
             <div class="stat-card">
-              <i class="fa-solid fa-triangle-exclamation stat-icon"></i>
+              <div class="stat-icon-wrapper">
+                <i class="fa-solid fa-triangle-exclamation stat-icon"></i>
+              </div>
               <h3 class="counter" data-target="99">0</h3>
-              <p>Looping Jaringan Diselesaikan</p>
+              <p>Troubleshoot Sukses</p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- ================= LEADERSHIP (WALI KELAS) ================= -->
+      <!-- ================= LEADERSHIP ================= -->
       <section id="leadership" class="section-padding bg-white border-top-red">
         <div class="container">
-          <div class="section-header center">
+          <div class="section-header center animate-on-scroll">
+            <span class="section-tag">STRUKTUR MANAJEMEN</span>
             <h2>Manajemen Kelas Eksekutif</h2>
+            <div class="accent-line"></div>
             <p>
               Mengenal lebih dekat sosok pemimpin (Wali Kelas) yang mengarahkan
               operasional dan strategi pengembangan siswa TKJ 1.
             </p>
           </div>
-
-          <div id="leadership-container" class="leadership-grid">
-            <!-- Data di-inject via JavaScript -->
+          <div
+            id="leadership-container"
+            class="leadership-grid animate-on-scroll"
+          >
+            <!-- Data Injected via JS -->
           </div>
         </div>
       </section>
 
-      <!-- ================= ARCHIVE / GALLERY ================= -->
+      <!-- ================= ARCHIVE / KENANGAN ================= -->
       <section id="archive" class="section-padding bg-light-grey">
         <div class="container">
-          <div class="section-header">
+          <div class="section-header animate-on-scroll">
+            <span class="section-tag">ARSIP DOKUMENTASI</span>
             <h2>Arsip Operasional & Memori</h2>
+            <div class="accent-line-left"></div>
             <p>
-              Jelajahi rekam jejak proyek, kegiatan praktik, dan momen
-              kebersamaan kami.
+              Jelajahi rekam jejak proyek, kegiatan praktik, momen kebersamaan,
+              canda tawa, dan perjuangan kami selama 3 tahun.
             </p>
           </div>
 
-          <div class="filter-tabs">
+          <div class="filter-tabs animate-on-scroll">
             <button class="filter-btn active" data-filter="all">
-              Semua Operasi
+              Semua Memori
             </button>
-            <button class="filter-btn" data-filter="10">
-              Fase 1 (Kelas 10)
-            </button>
-            <button class="filter-btn" data-filter="11">
-              Fase 2 (Kelas 11)
-            </button>
-            <button class="filter-btn" data-filter="12">
-              Fase 3 (Kelas 12)
-            </button>
+            <button class="filter-btn" data-filter="10">Kelas 10</button>
+            <button class="filter-btn" data-filter="11">Kelas 11</button>
+            <button class="filter-btn" data-filter="12">Kelas 12</button>
           </div>
 
+          <!-- Gallery Container -->
           <div id="gallery-container" class="article-grid">
-            <!-- Data di-inject via JavaScript -->
+            <!-- Data Injected via JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= ENDING / PERPISAHAN ================= -->
+      <section id="ending" class="section-padding bg-white border-top-yellow">
+        <div class="container ending-grid">
+          <div class="ending-text animate-on-scroll">
+            <span class="section-tag">AKHIR OPERASIONAL</span>
+            <h2 class="section-title">Langkah Terakhir: Tugas Selesai</h2>
+            <div class="accent-line-left"></div>
+            <p>
+              Setiap sesi koneksi memiliki instruksi penutupan, dan setiap
+              sistem yang berjalan akhirnya harus melakukan proses
+              <em>shutdown</em>. Tiga tahun kebersamaan di TKJ 1 SMKN 1 Anyer
+              kini telah mencapai rilis finalnya.
+            </p>
+            <p>
+              Kami pergi membawa sejuta memori, ilmu administrasi jaringan yang
+              berharga, dan kesiapan penuh untuk mengabdi pada kemajuan industri
+              teknologi di masa depan. Terima kasih kepada para guru, wali
+              kelas, dan teman-teman seperjuangan.
+            </p>
+            <p class="ending-slogan">
+              <strong>"Powering the Future, Logging Off."</strong>
+            </p>
+          </div>
+
+          <div class="ending-media-wrapper animate-on-scroll">
+            <!-- GANTI FOTO ANGKATAN / PERPISAHAN KELAS DI SINI -->
+            <img
+              src="assets/img/memori12.jpg"
+              alt="Foto Bersama TKJ 1"
+              class="ending-img"
+            />
+            <div class="ending-badge">
+              <span class="badge-status-dot"></span>
+              <span>STATUS: LAUNCHED / LULUS</span>
+            </div>
           </div>
         </div>
       </section>
@@ -183,26 +255,21 @@
       <div class="container">
         <div class="footer-top">
           <div class="footer-col">
-            <h4>TKJ 1 SMKN 1 Anyer</h4>
+            <div class="footer-logo">TKJ 1</div>
             <p>
               Menyediakan solusi jaringan inovatif dan SDM berkualitas untuk
               masa depan industri IT Indonesia.
             </p>
           </div>
           <div class="footer-col">
-            <h4>Tautan Cepat</h4>
-            <ul>
-              <li><a href="#about">Tentang Kami</a></li>
-              <li><a href="#leadership">Manajemen</a></li>
-              <li><a href="#archive">Arsip Digital</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
             <h4>Ikuti Perjalanan Kami</h4>
             <div class="social-links">
-              <a href="#"><i class="fa-brands fa-instagram"></i></a>
-              <a href="#"><i class="fa-brands fa-youtube"></i></a>
-              <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="#" aria-label="Instagram"
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
+              <a href="#" aria-label="YouTube"
+                ><i class="fa-brands fa-youtube"></i
+              ></a>
             </div>
           </div>
         </div>
@@ -210,10 +277,6 @@
           <p>
             &copy; 2026 TKJ 1 SMKN 1 Anyer Digital Archive. All rights reserved.
           </p>
-          <div class="footer-legal">
-            <a href="#">Syarat & Ketentuan</a>
-            <a href="#">Kebijakan Privasi</a>
-          </div>
         </div>
       </div>
     </footer>
@@ -221,11 +284,7 @@
     <!-- ================= MODAL / LIGHTBOX ================= -->
     <div id="archive-modal" class="modal-backdrop hidden">
       <div class="modal-window">
-        <button
-          class="btn-close-modal"
-          id="close-modal"
-          aria-label="Close modal"
-        >
+        <button class="btn-close-modal" id="close-modal" aria-label="Tutup">
           <i class="fa-solid fa-xmark"></i>
         </button>
         <div class="modal-media">
@@ -239,6 +298,23 @@
         </div>
       </div>
     </div>
+
+    <!-- ================= AUDIO PLAYER & FLOATING BUTTON ================= -->
+    <audio id="bg-music" loop>
+      <source src="assets/music/perunggu.mp3" type="audio/mpeg" />
+    </audio>
+
+    <button id="music-toggle" class="floating-music-btn" title="Mainkan Musik">
+      <div class="music-icon-container">
+        <i class="fa-solid fa-music" id="music-icon"></i>
+        <div class="equalizer hidden" id="equalizer">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </button>
 
     <!-- Scripts -->
     <script src="assets/js/app.js"></script>
