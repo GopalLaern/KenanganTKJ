@@ -213,20 +213,25 @@ img {
   align-items: center;
 }
 
-.logo-placeholder {
+/* Penyelarasan Flexbox Logo & Teks agar berdampingan secara horizontal */
+.brand-logo {
   display: flex;
-  align-items: center;
-  gap: 12px;
+  align-items: center; /* Sejajar tengah secara vertikal */
+  gap: 12px; /* Jarak antara logo gambar dengan teks di sebelahnya */
+  height: 100%;
 }
 
-.logo-box {
-  background-color: var(--c-yellow);
-  color: var(--c-red);
-  font-family: var(--font-heading);
-  font-weight: 800;
-  font-size: 1.2rem;
-  padding: 8px 14px;
-  border-radius: 4px;
+#main-logo {
+  height: 52px; /* Tinggi logo disesuaikan */
+  width: auto; /* Lebar otomatis proporsional */
+  object-fit: contain;
+  display: block;
+}
+
+.brand-text-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .brand-text {
@@ -236,7 +241,7 @@ img {
 
 .brand-text strong {
   color: var(--c-red);
-  display: block;
+  display: block; /* TKJ 1 dan SMKN 1 Anyer bertumpuk rapi di kanan logo */
 }
 
 /* Navigation Link Menu */
