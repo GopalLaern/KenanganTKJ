@@ -17,7 +17,7 @@ const leadershipData = [
     role: "Walikelas (Kelas 11 & 12)",
     quote:
       "Aku bagikan ilmu ini semampuku dan pengalaman belajar ku dan itu pun hanya sebagian saja, sisa bagian lainnya adalah tanggung jawab kalian",
-    image: "assets/img/guru2.jpg", // <- Taruh foto di assets/img/guru2.jpg
+    image: "assets/img/guru2.jpeg", // <- Taruh foto di assets/img/guru2.jpg
   },
 ];
 
