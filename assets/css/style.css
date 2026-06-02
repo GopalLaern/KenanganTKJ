@@ -1,479 +1,165 @@
 /* ==========================================================================
-   TKJ 1 - DIGITAL ARCHIVE SYSTEM
-   PREMIUM TERMINAL & CRT UI FRAMEWORK (v2.0)
+   TKJ 1 ARCHIVE - MINIMALIST SHELL THEME
    ========================================================================== */
 
-/* --------------------------------------------------------------------------
-   1. CSS VARIABLES & THEME TOKENS
-   -------------------------------------------------------------------------- */
+/* --- CSS VARIABLES --- */
 :root {
-  /* Core Colors */
-  --term-black: #000000;
-  --term-bg-dark: #050505;
-  --term-bg-panel: #0a0a0c;
-  --term-header: #1a1a1a;
+  /* Core Monochromatic Colors */
+  --bg-color: #121212;
+  --bg-panel: #1e1e1e;
+  --text-main: #cccccc;
+  --text-muted: #777777;
+  --border-color: #333333;
 
-  /* Neon Matrix Colors */
-  --term-green: #00ff41;
-  --term-green-dark: #008f11;
-  --term-green-dim: rgba(0, 255, 65, 0.1);
-  --term-green-glow: rgba(0, 255, 65, 0.5);
-
-  /* Tech Cyan Colors */
-  --term-cyan: #00e5ff;
-  --term-cyan-dark: #008899;
-  --term-cyan-dim: rgba(0, 229, 255, 0.1);
-  --term-cyan-glow: rgba(0, 229, 255, 0.5);
-
-  /* Alert & Status Colors */
-  --term-red: #ff003c;
-  --term-red-glow: rgba(255, 0, 60, 0.5);
-  --term-yellow: #fcee0a;
+  /* Syntax Highlighting (Subtle) */
+  --c-user: #4ade80; /* Green */
+  --c-dir: #60a5fa; /* Blue */
+  --c-colon: #f8f8f2; /* White */
+  --c-char: #f8f8f2; /* White */
+  --c-command: #fbd38d; /* Yellow-ish */
+  --c-link: #c084fc; /* Purple */
 
   /* Typography */
-  --font-mono: "Fira Code", "Courier New", Courier, monospace;
-
-  /* Borders & Shadows */
-  --border-thin: 1px solid var(--term-green);
-  --border-thick: 2px solid var(--term-green);
-  --border-cyan: 1px solid var(--term-cyan);
-  --box-shadow-green:
-    0 0 10px var(--term-green-glow), inset 0 0 10px var(--term-green-dim);
-  --box-shadow-cyan:
-    0 0 10px var(--term-cyan-glow), inset 0 0 10px var(--term-cyan-dim);
-
-  /* Animation Timings */
-  --transition-fast: 0.2s ease-in-out;
-  --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --font-mono: "JetBrains Mono", Courier, monospace;
 }
 
-/* --------------------------------------------------------------------------
-   2. GLOBAL RESETS & BASE STYLES
-   -------------------------------------------------------------------------- */
-*,
-*::before,
-*::after {
+/* --- RESETS --- */
+* {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-  background-color: var(--term-black);
-}
-
 body {
-  margin: 0;
-  padding: 0;
+  background-color: #000;
+  color: var(--text-main);
   font-family: var(--font-mono);
-  background-color: var(--term-black);
-  color: var(--term-green);
-  overflow-x: hidden;
-  /* Create slight curved illusion for body to mimic old screens */
-  perspective: 1000px;
+  font-size: 14px;
+  line-height: 1.6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
 }
 
 ::selection {
-  background: var(--term-green);
-  color: var(--term-black);
-  text-shadow: none;
+  background-color: var(--text-main);
+  color: var(--bg-color);
 }
 
-::-moz-selection {
-  background: var(--term-green);
-  color: var(--term-black);
-  text-shadow: none;
-}
-
-/* --------------------------------------------------------------------------
-   3. CRT SCREEN EFFECTS (RETRO MONITOR SIMULATION)
-   -------------------------------------------------------------------------- */
-
-/* Scanlines Effect */
-body::before {
-  content: " ";
-  display: block;
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(18, 16, 16, 0) 50%,
-    rgba(0, 0, 0, 0.25) 50%
-  );
-  background-size: 100% 4px;
-  z-index: 998;
-  pointer-events: none;
-}
-
-/* CRT Screen Flicker */
-body::after {
-  content: " ";
-  display: block;
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: rgba(18, 16, 16, 0.1);
-  opacity: 0;
-  z-index: 998;
-  pointer-events: none;
-  animation: flicker 0.15s infinite;
-}
-
-/* Vignette / Dark Corners */
-.crt-vignette {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(
-    circle,
-    rgba(0, 0, 0, 0) 60%,
-    rgba(0, 0, 0, 0.6) 100%
-  );
-  pointer-events: none;
-  z-index: 999;
-}
-
-/* Screen Bulge (Optional visual wrap on main container) */
-.term-window {
-  transform-style: preserve-3d;
-  animation: crt-turn-on 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
-}
-
-/* --------------------------------------------------------------------------
-   4. CUSTOM SCROLLBARS (LINUX STYLE)
-   -------------------------------------------------------------------------- */
-.custom-scrollbar {
-  scrollbar-width: thin;
-  scrollbar-color: var(--term-green) var(--term-bg-panel);
-}
-
+/* --- SCROLLBAR --- */
 .custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* --- MAIN SHELL WINDOW --- */
+.shell-window {
+  width: 100%;
+  max-width: 1000px;
+  height: 90vh;
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+}
+
+/* Header / Title Bar */
+.shell-header {
+  background-color: var(--bg-panel);
+  border-bottom: 1px solid var(--border-color);
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  user-select: none;
+}
+
+.window-buttons {
+  display: flex;
+  gap: 8px;
+  width: 60px; /* fixed width to keep title centered */
+}
+
+.window-buttons .btn {
   width: 12px;
   height: 12px;
+  border-radius: 50%;
+  background-color: var(--border-color); /* Flat grey default */
 }
 
-.custom-scrollbar::-webkit-scrollbar-track {
-  background: var(--term-bg-panel);
-  border-left: 1px solid #222;
+/* Optional: macOS colors on hover for subtle interaction */
+.window-buttons:hover .close {
+  background-color: #ff5f56;
+}
+.window-buttons:hover .minimize {
+  background-color: #ffbd2e;
+}
+.window-buttons:hover .maximize {
+  background-color: #27c93f;
 }
 
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background: var(--term-green-dark);
-  border: 1px solid var(--term-black);
-  border-radius: 2px;
+.window-title {
+  flex-grow: 1;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 12px;
+  margin-right: 60px; /* Balance the buttons width */
 }
 
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: var(--term-green);
-  box-shadow: 0 0 10px var(--term-green);
+/* Body / CLI Area */
+.shell-body {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
 }
 
-.custom-scrollbar::-webkit-scrollbar-corner {
-  background: var(--term-bg-panel);
+/* --- COMMAND PROMPT STYLES --- */
+.command-block {
+  margin-bottom: 25px;
 }
 
-/* --------------------------------------------------------------------------
-   5. MAIN TERMINAL WINDOW UI
-   -------------------------------------------------------------------------- */
-.term-window {
-  border: 1px solid rgba(0, 255, 65, 0.3);
-  box-shadow:
-    0 0 20px rgba(0, 0, 0, 0.8),
-    0 0 50px rgba(0, 255, 65, 0.1);
-  background-color: var(--term-bg-dark);
-  position: relative;
+.prompt {
+  margin-bottom: 10px;
+  word-break: break-all;
 }
 
-.term-window::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    var(--term-green),
-    transparent
-  );
-  opacity: 0.5;
-  z-index: 10;
+.user {
+  color: var(--c-user);
+  font-weight: bold;
+}
+.colon {
+  color: var(--c-colon);
+}
+.dir {
+  color: var(--c-dir);
+  font-weight: bold;
+}
+.char {
+  color: var(--c-char);
+  margin-right: 8px;
+}
+.typed-command {
+  color: var(--c-command);
 }
 
-/* Header bar styling */
-header {
-  background: linear-gradient(to bottom, #1a1a1a, #0a0a0c);
-  border-bottom: 1px solid #333;
-  position: relative;
-}
-
-header::after {
-  content: "";
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  width: 100%;
-  height: 1px;
-  background: var(--term-green);
-  box-shadow: 0 0 5px var(--term-green);
-  opacity: 0.3;
-}
-
-/* --------------------------------------------------------------------------
-   6. TERMINAL COMPONENTS & CARDS
-   -------------------------------------------------------------------------- */
-
-/* Standard Green Terminal Box (For Gallery) */
-.term-box {
-  border: 1px solid rgba(0, 255, 65, 0.3);
-  background: linear-gradient(
-    135deg,
-    rgba(0, 255, 65, 0.02) 0%,
-    rgba(0, 0, 0, 0.5) 100%
-  );
-  position: relative;
-  transition: var(--transition-smooth);
-  backdrop-filter: blur(2px);
-}
-
-.term-box::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border: 1px solid var(--term-green);
-  opacity: 0;
-  transition: opacity var(--transition-fast);
-  pointer-events: none;
-}
-
-.term-box:hover {
-  transform: translateY(-4px) scale(1.01);
-  box-shadow:
-    0 10px 20px rgba(0, 0, 0, 0.5),
-    0 0 15px var(--term-green-glow);
-  background: linear-gradient(
-    135deg,
-    rgba(0, 255, 65, 0.05) 0%,
-    rgba(0, 0, 0, 0.8) 100%
-  );
-  z-index: 2;
-}
-
-.term-box:hover::before {
-  opacity: 1;
-}
-
-/* Cyan Terminal Box (For Teachers/SysAdmins) */
-.term-box-cyan {
-  border: 1px solid rgba(0, 229, 255, 0.3);
-  background: linear-gradient(
-    135deg,
-    rgba(0, 229, 255, 0.02) 0%,
-    rgba(0, 0, 0, 0.5) 100%
-  );
-  position: relative;
-  transition: var(--transition-smooth);
-}
-
-.term-box-cyan::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border: 1px solid var(--term-cyan);
-  opacity: 0;
-  transition: opacity var(--transition-fast);
-  pointer-events: none;
-}
-
-.term-box-cyan:hover {
-  box-shadow:
-    0 10px 20px rgba(0, 0, 0, 0.5),
-    0 0 15px var(--term-cyan-glow);
-  background: rgba(0, 229, 255, 0.05);
-}
-
-.term-box-cyan:hover::before {
-  opacity: 1;
-}
-
-/* --------------------------------------------------------------------------
-   7. IMAGE CONTAINERS & FILTERS
-   -------------------------------------------------------------------------- */
-.term-img-container {
-  overflow: hidden;
-  position: relative;
-  border-bottom: 1px solid #333;
-}
-
-/* Green Matrix overlay on images */
-.term-img-container::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 255, 65, 0.15);
-  mix-blend-mode: overlay;
-  transition: background var(--transition-smooth);
-  pointer-events: none;
-  z-index: 2;
-}
-
-/* Scanline micro-effect just for images */
-.term-img-container::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 2px,
-    rgba(0, 0, 0, 0.3) 2px,
-    rgba(0, 0, 0, 0.3) 4px
-  );
-  z-index: 3;
-  pointer-events: none;
-  opacity: 0.7;
-}
-
-.term-box:hover .term-img-container::after {
-  background: rgba(0, 255, 65, 0);
-}
-
-/* Glitch effect trigger on image hover */
-.term-box:hover .term-img-container img {
-  animation: image-glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both
-    infinite;
-  filter: contrast(120%) brightness(110%);
-}
-
-/* --------------------------------------------------------------------------
-   8. BUTTONS & CONTROLS
-   -------------------------------------------------------------------------- */
-.filter-btn {
-  border: 1px solid #333;
-  background: transparent;
-  color: #888;
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.filter-btn::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(0, 255, 65, 0.2),
-    transparent
-  );
-  transition: left 0.5s ease;
-}
-
-.filter-btn:hover::before {
-  left: 100%;
-}
-
-.filter-btn:hover {
-  border-color: var(--term-green);
-  color: var(--term-green);
-  text-shadow: 0 0 5px var(--term-green);
-}
-
-/* Active State for Navigation Buttons */
-.filter-btn.active {
-  background-color: rgba(0, 255, 65, 0.1);
-  color: var(--term-green);
-  border-color: var(--term-green);
-  box-shadow:
-    inset 0 0 10px rgba(0, 255, 65, 0.2),
-    0 0 10px rgba(0, 255, 65, 0.4);
-  font-weight: 700;
-}
-
-.filter-btn.active::after {
-  content: " *";
-  animation: blink 1s infinite;
-}
-
-/* --------------------------------------------------------------------------
-   9. LIGHTBOX MODAL (VIM STYLE)
-   -------------------------------------------------------------------------- */
-#lightbox {
-  backdrop-filter: blur(5px) grayscale(100%);
-  animation: modal-fade-in 0.3s ease-out forwards;
-}
-
-#lightbox > div {
-  animation: crt-pop-in 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-}
-
-/* Image inside lightbox */
-#lightbox-img {
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
-  border: 1px solid #333;
-}
-
-/* Modal text styling */
-#lightbox h3 {
-  text-shadow: 0 0 8px var(--term-cyan-glow);
-  letter-spacing: 2px;
-}
-
-/* --------------------------------------------------------------------------
-   10. TYPOGRAPHY & TEXT UTILITIES
-   -------------------------------------------------------------------------- */
-.text-shadow-green {
-  text-shadow: 0 0 5px var(--term-green);
-}
-
-.text-shadow-cyan {
-  text-shadow: 0 0 5px var(--term-cyan);
-}
-
-.text-glitch-hover:hover {
-  animation: text-glitch 0.2s linear infinite;
-  color: var(--term-red);
-  text-shadow:
-    2px 0 var(--term-cyan),
-    -2px 0 var(--term-green);
-}
-
-/* --------------------------------------------------------------------------
-   11. ANIMATIONS & KEYFRAMES
-   -------------------------------------------------------------------------- */
-
-/* Blinking Terminal Cursor */
-.blinking-cursor {
+.cursor {
   display: inline-block;
-  width: 10px;
-  height: 1em;
-  background-color: currentColor;
+  width: 8px;
+  height: 15px;
+  background-color: var(--text-main);
   vertical-align: middle;
-  margin-left: 2px;
-  animation: blink 1s step-end infinite;
-}
-
-.blinking-cursor-underscore {
-  display: inline-block;
   animation: blink 1s step-end infinite;
 }
 
@@ -487,243 +173,232 @@ header::after {
   }
 }
 
-/* CRT Screen Flicker */
-@keyframes flicker {
-  0% {
-    opacity: 0.01;
-  }
-  5% {
-    opacity: 0.05;
-  }
-  10% {
-    opacity: 0.02;
-  }
-  15% {
-    opacity: 0.08;
-  }
-  20% {
-    opacity: 0.03;
-  }
-  25% {
-    opacity: 0.01;
-  }
-  30% {
-    opacity: 0.06;
-  }
-  35% {
-    opacity: 0.02;
-  }
-  40% {
-    opacity: 0.04;
-  }
-  45% {
-    opacity: 0.01;
-  }
-  50% {
-    opacity: 0.07;
-  }
-  55% {
-    opacity: 0.02;
-  }
-  60% {
-    opacity: 0.05;
-  }
-  65% {
-    opacity: 0.01;
-  }
-  70% {
-    opacity: 0.03;
-  }
-  75% {
-    opacity: 0.08;
-  }
-  80% {
-    opacity: 0.02;
-  }
-  85% {
-    opacity: 0.04;
-  }
-  90% {
-    opacity: 0.01;
-  }
-  95% {
-    opacity: 0.06;
-  }
-  100% {
-    opacity: 0.02;
-  }
+/* --- ADMIN (TEACHERS) SECTION --- */
+.admin-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-left: 5px;
+  border-left: 2px solid var(--border-color);
+  padding-left: 15px;
 }
 
-/* System Boot Sequence (Container Entry) */
-@keyframes crt-turn-on {
-  0% {
-    transform: scale(1, 0.001) translate3d(0, 0, 0);
-    filter: brightness(10);
-    opacity: 0;
-  }
-  40% {
-    transform: scale(1, 0.001) translate3d(0, 0, 0);
-    filter: brightness(10);
-    opacity: 1;
-  }
-  70% {
-    transform: scale(1, 1) translate3d(0, 0, 0);
-    filter: brightness(2);
-  }
-  100% {
-    transform: scale(1, 1) translate3d(0, 0, 0);
-    filter: brightness(1);
-    opacity: 1;
-  }
+.admin-item {
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
 }
 
-/* Modal Pop In */
-@keyframes crt-pop-in {
-  0% {
-    transform: scale(0.8);
-    opacity: 0;
-    filter: blur(5px);
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-    filter: blur(0);
-  }
+.admin-item img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border: 1px solid var(--text-muted);
+  filter: grayscale(100%);
 }
 
-@keyframes modal-fade-in {
-  from {
-    background: rgba(0, 0, 0, 0);
-  }
-  to {
-    background: rgba(0, 0, 0, 0.85);
-  }
+.admin-details {
+  display: flex;
+  flex-direction: column;
 }
 
-/* Heavy Image Glitch Effect */
-@keyframes image-glitch {
-  0% {
-    transform: translate(0);
-  }
-  20% {
-    transform: translate(-2px, 2px);
-    filter: hue-rotate(90deg);
-  }
-  40% {
-    transform: translate(-2px, -2px);
-    filter: hue-rotate(0deg);
-  }
-  60% {
-    transform: translate(2px, 2px);
-    filter: invert(10%);
-  }
-  80% {
-    transform: translate(2px, -2px);
-    filter: hue-rotate(180deg);
-  }
-  100% {
-    transform: translate(0);
-    filter: hue-rotate(0deg);
-  }
+.admin-name {
+  color: var(--text-main);
+  font-weight: bold;
 }
 
-/* Text Glitch Effect */
-@keyframes text-glitch {
-  0% {
-    clip-path: inset(20% 0 80% 0);
-    transform: translate(-2px, 1px);
-  }
-  20% {
-    clip-path: inset(60% 0 10% 0);
-    transform: translate(2px, -1px);
-  }
-  40% {
-    clip-path: inset(40% 0 50% 0);
-    transform: translate(-2px, 2px);
-  }
-  60% {
-    clip-path: inset(80% 0 5% 0);
-    transform: translate(2px, -2px);
-  }
-  80% {
-    clip-path: inset(10% 0 70% 0);
-    transform: translate(-1px, 1px);
-  }
-  100% {
-    clip-path: inset(30% 0 50% 0);
-    transform: translate(1px, -1px);
-  }
+.admin-role {
+  color: var(--text-muted);
+  font-size: 12px;
 }
 
-/* Matrix Falling Code Effect (Placeholder logic for future expansions) */
-@keyframes matrix-fall {
-  0% {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  90% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(1000%);
-    opacity: 0;
-  }
+.admin-quote {
+  color: var(--c-dir);
+  font-style: italic;
+  margin-top: 5px;
 }
 
-/* --------------------------------------------------------------------------
-   12. RESPONSIVE ADJUSTMENTS
-   -------------------------------------------------------------------------- */
-@media (max-width: 768px) {
-  body::before {
-    background-size: 100% 2px; /* Thinner scanlines on mobile */
-  }
-
-  .term-window {
-    height: 95vh;
-    border-radius: 0;
-    border: none;
-    border-top: 1px solid var(--term-green);
-    border-bottom: 1px solid var(--term-green);
-  }
-
-  #lightbox > div {
-    max-height: 95vh;
-    overflow-y: auto;
-  }
-
-  #lightbox-img {
-    max-height: 40vh;
-  }
+/* --- MEMORIES GALLERY SECTION --- */
+.filter-group {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
 }
 
-/* --------------------------------------------------------------------------
-   13. PRINT STYLES (Because SysAdmins might print logs)
-   -------------------------------------------------------------------------- */
-@media print {
-  body {
-    background: white;
-    color: black;
-  }
-
-  .term-window {
-    box-shadow: none;
-    border: 1px solid black;
-  }
-
-  body::before,
-  body::after,
-  .crt-vignette {
-    display: none !important;
-  }
-
-  .term-box {
-    break-inside: avoid;
-    border: 1px solid #ccc;
-    background: transparent;
-  }
+.filter-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  transition: color 0.2s;
 }
 
-/* EOF - SYSTEM HALTED */
+.filter-btn:hover {
+  color: var(--text-main);
+}
+
+.filter-btn.active {
+  color: var(--c-link);
+  font-weight: bold;
+  text-decoration-color: var(--c-link);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.gallery-item {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.gallery-item:hover .img-box img {
+  filter: grayscale(0%);
+  border-color: var(--text-main);
+}
+
+.gallery-item:hover .file-name {
+  color: var(--c-link);
+}
+
+.img-box {
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 1px solid var(--border-color);
+  filter: grayscale(100%);
+  transition:
+    filter 0.3s,
+    border-color 0.3s;
+}
+
+.file-name {
+  color: var(--text-main);
+  font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.file-meta {
+  color: var(--text-muted);
+  font-size: 11px;
+}
+
+/* --- MODAL (IMAGE VIEWER) --- */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-header {
+  background-color: var(--text-main);
+  color: var(--bg-color);
+  padding: 5px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  color: var(--bg-color);
+  font-family: inherit;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.modal-close:hover {
+  color: #ff5f56;
+}
+
+.modal-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.modal-image-wrapper img {
+  width: 100%;
+  max-height: 50vh;
+  object-fit: contain;
+  border: 1px solid var(--border-color);
+}
+
+.modal-info {
+  font-size: 13px;
+  border-top: 1px dashed var(--border-color);
+  padding-top: 15px;
+}
+
+.info-row {
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.info-label {
+  width: 80px;
+  color: var(--text-muted);
+}
+
+.info-val {
+  flex: 1;
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 600px) {
+  .gallery-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .admin-item {
+    flex-direction: column;
+    gap: 5px;
+  }
+  .shell-body {
+    padding: 10px;
+  }
+}

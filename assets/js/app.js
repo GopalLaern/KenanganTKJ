@@ -1,207 +1,195 @@
 /* ==========================================================================
-   TKJ 1 - DIGITAL ARCHIVE SYSTEM - CORE LOGIC
+   TKJ 1 ARCHIVE - SHELL LOGIC
    ========================================================================== */
 
-// 1. Data Structure: System Administrators (Homeroom Teachers)
+// 1. DATA: Sysadmins (Wali Kelas)
 const teacherData = [
   {
-    id: "sysadmin-1",
+    id: "sys-01",
     name: "Bpk. Rahmat Santoso, S.Kom",
-    role: "SYSADMIN / WALI KELAS 10 & 11",
-    quote: '"sudo rm -rf /kemalasan && apt-get install semangat"',
+    role: "root / Wali Kelas 10 & 11",
+    quote: "# sudo systemctl restart motivasi",
     image:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400&auto=format&fit=crop",
   },
   {
-    id: "root-1",
+    id: "sys-02",
     name: "Ibu Dian Pertiwi, M.T",
-    role: "ROOT / WALI KELAS 12",
-    quote: '"Koneksi putus bisa disambung, harapan putus routingnya kemana?"',
+    role: "admin / Wali Kelas 12",
+    quote: "# ping 127.0.0.1 - Tidak ada tempat sebaik rumah (kelas)",
     image:
-      "https://images.unsplash.com/photo-1580894732444-8ecded790047?q=80&w=600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1580894732444-8ecded790047?q=80&w=400&auto=format&fit=crop",
   },
 ];
 
-// 2. Data Structure: Memory Archive (Grades 10 - 12)
+// 2. DATA: Memories
 const memoryData = [
   {
-    id: "mem-001",
-    classLevel: "10",
-    title: "Crimping Cable Disaster",
-    desc: "Momen bersejarah: Susunan kabel Cross dan Straight tertukar massal. Ping Request Timed Out seharian penuh 1 Lab.",
+    id: "mem-10-1",
+    grade: "10",
+    filename: "crimping_fail.jpg",
+    title: "Tragedi Kabel Cross",
+    desc: "Satu kelas gagal ping karena salah urutan kabel. Tester kabel menyala acak.",
     image:
-      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=600&auto=format&fit=crop",
   },
   {
-    id: "mem-002",
-    classLevel: "10",
-    title: "IP Conflict Momen",
-    desc: "DHCP Server bentrok karena ada router siluman yang diam-diam dinyalakan di pojok kelas. Tracert jadi pusing.",
+    id: "mem-10-2",
+    grade: "10",
+    filename: "ip_conflict.png",
+    title: "IP Conflict Masal",
+    desc: "Uji coba DHCP Server malah bikin satu lab bentrok IP Address.",
     image:
-      "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=600&auto=format&fit=crop",
   },
   {
-    id: "mem-003",
-    classLevel: "11",
-    title: "Instalasi Mikrotik",
-    desc: "Pertama kali pegang Winbox. Berakhir dengan Looping Jaringan 1 lab, switch hang, dan lampu indikator kedip-kedip disko.",
+    id: "mem-11-1",
+    grade: "11",
+    filename: "mikrotik_loop.jpg",
+    title: "Looping Jaringan",
+    desc: "Salah seting bridge di Winbox, seluruh switch hang dan lampu indikator kedip bersamaan.",
     image:
-      "https://images.unsplash.com/photo-1606768666853-403c90a981ad?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1606768666853-403c90a981ad?q=80&w=600&auto=format&fit=crop",
   },
   {
-    id: "mem-004",
-    classLevel: "11",
-    title: "Subnetting Pusing",
-    desc: "Ujian tertulis menghitung prefix /27 dan /29. Pakai jari sampai keriting, ujung-ujungnya broadcast address salah.",
+    id: "mem-11-2",
+    grade: "11",
+    filename: "subnetting.jpg",
+    title: "Mabuk Subnetting",
+    desc: "Menghitung VLSM di papan tulis sampai penuh, hasil akhirnya tetep salah broadcast.",
     image:
-      "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=600&auto=format&fit=crop",
   },
   {
-    id: "mem-005",
-    classLevel: "12",
-    title: "Ujikom Tegang",
-    desc: "Ujian Kompetensi Keahlian (UKK). Konfigurasi OSPF, VLAN, dan Proxy Server sambil tremor diawasi asesor eksternal.",
+    id: "mem-12-1",
+    grade: "12",
+    filename: "ukk_proxy.jpg",
+    title: "UKK Proxy Server",
+    desc: "Ujian Kompetensi Keahlian, deg-degan blokir situs via proxy sambil diawasi asesor.",
     image:
-      "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=600&auto=format&fit=crop",
   },
   {
-    id: "mem-006",
-    classLevel: "12",
-    title: "Perpisahan Server",
-    desc: "Shutdown system for the last time. Melepas kabel UTP terakhir, mematikan rack server, dan siap menghadapi realita.",
+    id: "mem-12-2",
+    grade: "12",
+    filename: "shutdown_now.jpg",
+    title: "Perpisahan Lab",
+    desc: "Melepas kabel patch cord terakhir sebelum lulus. init 0.",
     image:
-      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=800&auto=format&fit=crop", // Reused aesthetic tech img
+      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=600&auto=format&fit=crop",
   },
 ];
 
-// 3. Render Functions
+// 3. RENDER FUNCTIONS
 
-// Render Homeroom Teachers
 function renderTeachers() {
-  const container = document.getElementById("teachers-grid");
-  container.innerHTML = ""; // Clear existing
+  const container = document.getElementById("teachers-container");
+  container.innerHTML = "";
 
   teacherData.forEach((teacher) => {
-    const card = `
-            <div class="term-box-cyan flex flex-col sm:flex-row p-4 gap-4 items-center">
-                <div class="w-24 h-24 shrink-0 rounded-sm overflow-hidden border border-cyan relative">
-                    <div class="absolute inset-0 bg-cyan/20 z-10 mix-blend-overlay"></div>
-                    <img src="${teacher.image}" alt="${teacher.name}" class="w-full h-full object-cover grayscale brightness-125">
-                </div>
-                <div class="flex flex-col gap-1 w-full">
-                    <div class="text-cyan font-bold border-b border-gray-700 pb-1 text-lg">
-                        <i class="fa-solid fa-user-shield mr-2"></i>${teacher.name}
-                    </div>
-                    <div class="text-xs text-matrix bg-matrix/10 inline-block px-2 py-1 mt-1 border border-matrix self-start">
-                        [ ${teacher.role} ]
-                    </div>
-                    <div class="text-gray-400 text-sm mt-2 italic">
-                        > ${teacher.quote}
-                    </div>
-                </div>
+    const item = document.createElement("div");
+    item.className = "admin-item";
+    item.innerHTML = `
+            <img src="${teacher.image}" alt="${teacher.name}">
+            <div class="admin-details">
+                <span class="admin-name">${teacher.name}</span>
+                <span class="admin-role">[${teacher.role}]</span>
+                <span class="admin-quote">${teacher.quote}</span>
             </div>
         `;
-    container.innerHTML += card;
+    container.appendChild(item);
   });
 }
 
-// Render Gallery Cards Based on Filter
-function renderGallery(filterLevel) {
-  const container = document.getElementById("photo-grid");
-  container.innerHTML = ""; // Clear existing
+function renderGallery(filterGrade) {
+  const container = document.getElementById("gallery-container");
+  container.innerHTML = "";
 
-  const filteredData =
-    filterLevel === "all"
+  const filtered =
+    filterGrade === "all"
       ? memoryData
-      : memoryData.filter((mem) => mem.classLevel === filterLevel);
+      : memoryData.filter((m) => m.grade === filterGrade);
 
-  if (filteredData.length === 0) {
-    container.innerHTML = `<p class="text-red-500">> Error: No directories found for this query.</p>`;
+  if (filtered.length === 0) {
+    container.innerHTML = `<span style="color: var(--text-muted)">ls: no records found</span>`;
     return;
   }
 
-  filteredData.forEach((item) => {
-    const card = `
-            <div class="term-box group cursor-pointer flex flex-col" onclick="openLightbox('${item.id}')">
-                <div class="term-img-container h-48 w-full">
-                    <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
-                </div>
-                <div class="p-4 flex flex-col flex-1 bg-black/50 group-hover:bg-matrix/5 transition-colors">
-                    <div class="flex justify-between items-center mb-2">
-                        <span class="text-cyan text-sm font-bold">./${item.title.replace(/\s+/g, "-").toLowerCase()}</span>
-                        <span class="text-xs border border-matrix px-1 text-matrix">GR-${item.classLevel}</span>
-                    </div>
-                    <p class="text-gray-400 text-xs mt-2 flex-1 line-clamp-3">> ${item.desc}</p>
-                    <div class="mt-4 text-xs text-matrix opacity-0 group-hover:opacity-100 transition-opacity">
-                        [ Click to execute view ] <span class="blinking-cursor">_</span>
-                    </div>
-                </div>
+  filtered.forEach((mem) => {
+    const item = document.createElement("div");
+    item.className = "gallery-item";
+    item.onclick = () => openViewer(mem.id);
+
+    item.innerHTML = `
+            <div class="img-box">
+                <img src="${mem.image}" alt="${mem.filename}" loading="lazy">
             </div>
+            <span class="file-name">./${mem.filename}</span>
+            <span class="file-meta">-rw-r--r-- Grade ${mem.grade}</span>
         `;
-    container.innerHTML += card;
+    container.appendChild(item);
   });
 }
 
-// 4. Interaction Functions
+// 4. INTERACTION & MODAL LOGIC
 
-// Handle Filter Button Clicks
-function filterGallery(level) {
-  // Update active class on buttons
+function setupFilters() {
   const buttons = document.querySelectorAll(".filter-btn");
   buttons.forEach((btn) => {
-    btn.classList.remove("active");
-    // Match string content logic for setting active state
-    if (
-      (level === "all" && btn.textContent.includes("all-memories")) ||
-      (level === "10" && btn.textContent.includes("kelas-10")) ||
-      (level === "11" && btn.textContent.includes("kelas-11")) ||
-      (level === "12" && btn.textContent.includes("kelas-12"))
-    ) {
-      btn.classList.add("active");
-    }
+    btn.addEventListener("click", (e) => {
+      // Remove active class from all
+      buttons.forEach((b) => b.classList.remove("active"));
+      // Add active to clicked
+      e.target.classList.add("active");
+      // Render gallery
+      const filterValue = e.target.getAttribute("data-filter");
+      renderGallery(filterValue);
+    });
   });
-
-  // Re-render gallery
-  renderGallery(level);
 }
 
-// Open Lightbox (Vim Modal)
-function openLightbox(id) {
-  const memory = memoryData.find((mem) => mem.id === id);
-  if (!memory) return;
+function openViewer(id) {
+  const mem = memoryData.find((m) => m.id === id);
+  if (!mem) return;
 
-  document.getElementById("lightbox-img").src = memory.image;
-  document.getElementById("lightbox-title").innerText = memory.title;
-  document.getElementById("lightbox-level").innerText = memory.classLevel;
-  document.getElementById("lightbox-desc").innerText = memory.desc;
+  document.getElementById("modal-filename").textContent = mem.filename;
+  document.getElementById("modal-img").src = mem.image;
+  document.getElementById("modal-title").textContent = mem.title;
+  document.getElementById("modal-grade").textContent = mem.grade;
+  document.getElementById("modal-desc").textContent = mem.desc;
 
-  const lightbox = document.getElementById("lightbox");
-  lightbox.classList.remove("hidden");
-  lightbox.classList.add("flex");
-
-  // Prevent background scrolling
-  document.body.style.overflow = "hidden";
+  const viewer = document.getElementById("image-viewer");
+  viewer.classList.remove("hidden");
+  document.body.style.overflow = "hidden"; // Prevent background scrolling
 }
 
-// Close Lightbox
-function closeLightbox() {
-  const lightbox = document.getElementById("lightbox");
-  lightbox.classList.add("hidden");
-  lightbox.classList.remove("flex");
+function closeViewer() {
+  const viewer = document.getElementById("image-viewer");
+  viewer.classList.add("hidden");
+  document.body.style.overflow = "auto"; // Restore scrolling
 
-  // Restore background scrolling
-  document.body.style.overflow = "auto";
+  // Clear image src so it doesn't flash old image next time
+  setTimeout(() => {
+    document.getElementById("modal-img").src = "";
+  }, 200);
 }
 
-// Close Lightbox via Escape Key
-document.addEventListener("keydown", function (event) {
-  if (event.key === "Escape") {
-    closeLightbox();
-  }
+// Escape key to close modal
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeViewer();
 });
 
-// 5. Initialize System
+// Set current date for "Last login"
+function setCurrentDate() {
+  const dateSpan = document.getElementById("current-date");
+  const now = new Date();
+  dateSpan.textContent = now.toString().split(" GMT")[0]; // Simple format string
+}
+
+// 5. INITIALIZE
 document.addEventListener("DOMContentLoaded", () => {
+  setCurrentDate();
   renderTeachers();
   renderGallery("all");
+  setupFilters();
 });
